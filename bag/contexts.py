@@ -8,9 +8,9 @@ def bag_contents(request):
     total = 0
     product_count = 0
 
-    if total < settings.FREE_DELIVERY_TRESHOLD:
+    if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
-        free_delivery_delta = settings.FREE_DELIVERY_TRESHOLD - total
+        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
         free_delivery_delta = 0
@@ -22,7 +22,7 @@ def bag_contents(request):
         "total": total,
         "product_count": product_count,
         "free_delivery_delta": free_delivery_delta,
-        "free_delivery_treshold": settings.FREE_DELIVERY_TRESHOLD,
+        "free_delivery_treshold": settings.FREE_DELIVERY_THRESHOLD,
         "grand_total": grand_total,
     }
 
